@@ -1,2 +1,2 @@
-# java101
-Moje prvé kroky v Jave
+# Java 101
+Toto je môj prvý kurz v programovacom jazyku Java the best
