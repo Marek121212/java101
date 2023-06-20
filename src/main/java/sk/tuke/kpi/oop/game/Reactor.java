@@ -17,4 +17,18 @@ public class Reactor extends AbstractActor {
 
         setAnimation(normalAnimation);
     }
+
+    public int getTemperatur(){
+        return temperature;
+    }
+    public int getDamage(){
+        return damage;
+    }
+    public boolean getSate(){
+        return state;
+    }
+
+    public void increaseTemperatur(int increment){
+
+    }
 }
