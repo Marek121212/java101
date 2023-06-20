@@ -9,26 +9,35 @@ public class Reactor extends AbstractActor {
     private int damage;
     private Animation normalAnimation;
 
-    public Reactor(){ // konstruktor nic nevracia preto ani void nepise
-        temperature = 0;
-        state = false;
-        damage = 0;
-        normalAnimation = new Animation("sprites/reactor_on.png",80,80,0.1f, Animation.PlayMode.LOOP_PINGPONG); //prehrava obrazky 1,2,3,4,3,2,1;
+    public Reactor() { // konstruktor nic nevracia preto ani void nepise
+        this.temperature = 0;
+        this.state = false;
+        this.damage = 0;
+        this.normalAnimation = new Animation("sprites/reactor_on.png", 80, 80, 0.1f, Animation.PlayMode.LOOP_PINGPONG); //prehrava obrazky 1,2,3,4,3,2,1;
 
-        setAnimation(normalAnimation);
+        setAnimation(this.normalAnimation);
     }
 
-    public int getTemperatur(){
-        return temperature;
-    }
-    public int getDamage(){
-        return damage;
-    }
-    public boolean getSate(){
-        return state;
+    public int getTemperatur() {
+        return this.temperature;
     }
 
-    public void increaseTemperatur(int increment){
+    public int getDamage() {
+        return this.damage;
+    }
 
+    public boolean getSate() {
+        return this.state;
+    }
+
+    public void increaseTemperatur(int increment) {
+        this.temperature = this.temperature + increment;
+        if (this.temperature >= 2000 && this.temperature <= 6000) {
+            int damage = this.temperature / 40 - 50;
+
+            if (this.damage < damage) {
+                this.damage = damage;
+            }
+        }
     }
 }
