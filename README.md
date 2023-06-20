@@ -3,7 +3,7 @@ Toto je môj prvý kurz v programovacom jazyku Java the best
 Ymena
 Ale Python je aj tak lepší
 
-dnes som skoro ready 
+dnes som skoro ready
 
 dalsia zmena
 
