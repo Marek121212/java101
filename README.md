@@ -6,3 +6,4 @@ Ale Python je aj tak lepší
 dnes som skoro ready 
 dalsia zmena
 A dalsia zmena
+totot je najnovsia zmena
