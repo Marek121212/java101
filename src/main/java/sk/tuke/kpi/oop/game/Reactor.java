@@ -30,14 +30,30 @@ public class Reactor extends AbstractActor {
         return this.state;
     }
 
-    public void increaseTemperatur(int increment) {
+    public void increaseTemperature(int increment) {
         this.temperature = this.temperature + increment;
-        if (this.temperature >= 2000 && this.temperature <= 6000) {
-            int damage = this.temperature / 40 - 50;
 
-            if (this.damage < damage) {
-                this.damage = damage;
-            }
+        // update animation
+        if (this.temperature >= 6000) {
+            Animation animation = new Animation(
+                "sprites/reactor_broken.png",
+                80, 80, 0.1f,
+                Animation.PlayMode.LOOP_PINGPONG
+            );
+            setAnimation(animation);
+
+        } else if (this.temperature >= 4000) {
+            Animation animation = new Animation(
+                "sprites/reactor_hot.png",
+                80, 80, 0.1f,
+                Animation.PlayMode.LOOP_PINGPONG
+            );
+            setAnimation(animation);
+
+        } else {
+            setAnimation(this.normalAnimation);
         }
     }
 }
+
+    //int damage = this.temperature / 40 - 50;
