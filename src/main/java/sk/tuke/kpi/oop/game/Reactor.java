@@ -20,7 +20,7 @@ public class Reactor extends AbstractActor {
 
 
         this.normalAnimationHot = new Animation("sprites/reactor_hot.png",
-            80,80,0.1f,
+            80, 80, 0.1f,
             Animation.PlayMode.LOOP_PINGPONG);
 
         setAnimation(this.normalAnimation);
@@ -42,7 +42,10 @@ public class Reactor extends AbstractActor {
 
     public void increaseTemperature(int increment) {
         this.temperature = this.temperature + increment;
-
+        // ak je poskodenie 100 uz ostane rozbity obrazok....
+        if(this.damage==100){
+            return;
+        }
         // update animation
         // if temperature is >= 6000, then broken show reactor
         if (this.temperature >= 6000) {
@@ -62,7 +65,17 @@ public class Reactor extends AbstractActor {
         } else {
             setAnimation(this.normalAnimation);
         }
+
+        if (this.temperature >= 2000) {
+            if (this.temperature >= 6000) {
+                this.damage = 100;
+            } else {
+                int damage = this.temperature / 40 - 50;
+                if (this.damage < damage) {
+                    this.damage = damage;
+                }
+            }
+        }
     }
 }
 
-    //int damage = this.temperature / 40 - 50;
