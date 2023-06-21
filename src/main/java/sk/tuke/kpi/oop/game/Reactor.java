@@ -41,6 +41,11 @@ public class Reactor extends AbstractActor {
     }
 
     public void increaseTemperature(int increment) {
+        if (increment > 0) {
+            this.temperature = this.temperature + increment;
+        } else {
+            return;
+        }
         this.temperature = this.temperature + increment;
         // ak je poskodenie 100 uz ostane rozbity obrazok....
         if (this.damage == 100) {
@@ -80,14 +85,18 @@ public class Reactor extends AbstractActor {
     }
 
     public void decreaseTemperature(int decrease) {
-        this.temperature = this.temperature - decrease;
-        if(this.damage == 100){
+        if (decrease < 0) {
             return;
         }
-        updateAnimation();
+
+        this.temperature = this.temperature - decrease;
+        if (this.damage == 100) {
+            return;
+        }
+        this.updateAnimation();//moze byt this aj nemusi byt this...
     }
 
-    public void updateAnimation(){
+    public void updateAnimation() { // ak by som dal nie public a private - tak uz to nemozem ovplyvnit cez inspektora
         if (this.temperature >= 6000) {
             Animation animation = new Animation(
                 "sprites/reactor_broken.png",
