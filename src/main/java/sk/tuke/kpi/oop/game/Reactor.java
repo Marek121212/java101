@@ -43,7 +43,7 @@ public class Reactor extends AbstractActor {
     public void increaseTemperature(int increment) {
         this.temperature = this.temperature + increment;
         // ak je poskodenie 100 uz ostane rozbity obrazok....
-        if(this.damage==100){
+        if (this.damage == 100) {
             return;
         }
         // update animation
@@ -65,6 +65,7 @@ public class Reactor extends AbstractActor {
         } else {
             setAnimation(this.normalAnimation);
         }
+        //namiesto tych 3 podmienok hore tiez by som mohol metodu updateAnimation zavolat...
 
         if (this.temperature >= 2000) {
             if (this.temperature >= 6000) {
@@ -77,5 +78,32 @@ public class Reactor extends AbstractActor {
             }
         }
     }
-}
 
+    public void decreaseTemperature(int decrease) {
+        this.temperature = this.temperature - decrease;
+        if(this.damage == 100){
+            return;
+        }
+        updateAnimation();
+    }
+
+    public void updateAnimation(){
+        if (this.temperature >= 6000) {
+            Animation animation = new Animation(
+                "sprites/reactor_broken.png",
+                80, 80, 0.1f,
+                Animation.PlayMode.LOOP_PINGPONG
+            );
+            setAnimation(animation);
+            // ak by som nechcel vytvarat novu triedu ako v podnmienke pred tak definujem
+            // privat Animation normalAnimationHot a importujem don obrazok...
+            // if (4000 <= temperature < 6000), then show hot reactor
+        } else if (this.temperature >= 4000) {
+            setAnimation(this.normalAnimationHot);
+
+            // otherwise show normal reactor
+        } else {
+            setAnimation(this.normalAnimation);
+        }
+    }
+}
