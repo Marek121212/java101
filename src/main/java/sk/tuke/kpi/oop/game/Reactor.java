@@ -115,4 +115,22 @@ public class Reactor extends AbstractActor {
             setAnimation(this.normalAnimation);
         }
     }
+
+    public void repairWith(Hammer hammer){
+        //ak tam nieje kladivo koniec
+        if(hammer == null){
+            return;
+        }
+        //nerob nic ked reaktor nieje poskodeny alebo je mrtvy
+
+        if(this.damage == 0 || this.damage == 100) {
+            return;
+        }
+        hammer.use();
+        this.damage = this.damage - 50;
+        this.temperature = 0;
+        if (this.damage < 0){
+            this.damage = 0;
+        }
+    }
 }
