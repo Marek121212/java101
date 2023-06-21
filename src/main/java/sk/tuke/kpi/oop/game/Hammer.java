@@ -16,4 +16,11 @@ public class Hammer extends AbstractActor {
     public int getUsages(){
         return this.usages;
     }
+
+    public void use(){
+        this.usages = this.usages - 1;
+        if (this.usages == 0){
+            getScene().removeActor(this);//moze byt aj this.getScene()
+        }
+    }
 }
