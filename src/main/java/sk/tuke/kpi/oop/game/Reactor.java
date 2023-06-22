@@ -76,6 +76,7 @@ public class Reactor extends AbstractActor {
         if (this.temperature >= 2000) {
             if (this.temperature >= 6000) {
                 this.damage = 100;
+                this.state = false;
             } else {
                 int damage = this.temperature / 40 - 50;
                 if (this.damage < damage) {
@@ -140,11 +141,23 @@ public class Reactor extends AbstractActor {
     }
 
     public void turnOn() {
+        if(this.damage == 100){
+            return;
+        }
         this.state = true;
+        if(this.temperature == 0){
+            setAnimation(normalAnimation);
+        }
+        getAnimation().play();
     }
 
     public void turnOff() {
+        if(this.damage == 0){
+           return;
+        }
         this.state = false;
+        getAnimation().pause();
+
     }
 
     public boolean isRunning() {
