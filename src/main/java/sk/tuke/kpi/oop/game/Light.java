@@ -36,5 +36,9 @@ public class Light extends AbstractActor {
     //setAnimation(lightoff);
    // }
 
+    //alebo
+//    this.isOn = !this.isOn;
+//    setAnimation(this.isOn ? lighOff lightOn)
+
 }
 
