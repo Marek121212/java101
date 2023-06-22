@@ -9,10 +9,17 @@ public class Controller extends AbstractActor {
 
 
     public Controller(Reactor reactor) {
-        // reactor ktory je za == sme preradili do premennej ktora je private
+        // reactor ktory je za == sme priradili do premennej ktora je private
         // aby sme povedali ze dany controller ovlada dany reactor...
         this.reactor = reactor;
         Animation animation = new Animation("sprites/switch.png");
         setAnimation(animation);
+    }
+    public void toglle(){
+        if(this.reactor.isRunning()){
+            this.reactor.turnOff();
+        }else {
+            this.reactor.turnOn();
+        }
     }
 }
