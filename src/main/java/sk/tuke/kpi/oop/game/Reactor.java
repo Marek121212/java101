@@ -43,7 +43,7 @@ public class Reactor extends AbstractActor {
     }
 
     public void increaseTemperature(int increment) {
-        if (increment > 0) {
+        if (increment < 0 || isRunning() == false) {
             this.temperature = this.temperature + increment;
         } else {
             return;
@@ -87,7 +87,7 @@ public class Reactor extends AbstractActor {
     }
 
     public void decreaseTemperature(int decrease) {
-        if (decrease < 0) {
+        if (decrease < 0 || isRunning() == false) {
             return;
         }
 
@@ -95,8 +95,10 @@ public class Reactor extends AbstractActor {
         if (this.damage == 100) {
             return;
         }
+
         this.updateAnimation();//moze byt this aj nemusi byt this...
     }
+
 
     public void updateAnimation() { // ak by som dal nie public a private - tak uz to nemozem ovplyvnit cez inspektora
         if (this.temperature >= 6000) {
@@ -118,33 +120,35 @@ public class Reactor extends AbstractActor {
         }
     }
 
-    public void repairWith(Hammer hammer){
+    public void repairWith(Hammer hammer) {
         //ak tam nieje kladivo koniec
-        if(hammer == null){
+        if (hammer == null) {
             return;
         }
         //nerob nic ked reaktor nieje poskodeny alebo je mrtvy
 
-        if(this.damage == 0 || this.damage == 100) {
+        if (this.damage == 0 || this.damage == 100) {
             return;
         }
         hammer.use();
         this.damage = this.damage - 50;
 
-        if (this.damage < 0){
+        if (this.damage < 0) {
             this.damage = 0;
         }
         this.temperature = 0;
         updateAnimation();
     }
-    public void turnOn(){
+
+    public void turnOn() {
         this.state = true;
     }
 
-    public void turnOff(){
+    public void turnOff() {
         this.state = false;
     }
-    public boolean isRunning(){
+
+    public boolean isRunning() {
         return this.state;
     }
 }
