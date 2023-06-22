@@ -10,18 +10,18 @@ public class Computer extends AbstractActor {
         setAnimation(animation);
     }
 
-    public int add(int a, int b) {
-        return a + b;
+    public int add(int operand1, int operand2) {
+        return operand1 + operand2;
     }
 
-    public float add(float a, float b) {
-        return a + b;
+    //public float add(float a, float b) {
+      //  return a + b;
+    //}
+    public int sub(int operand1, int operand2){
+        return operand1 - operand2;
     }
-    public int sub(int a, int b){
-        return a - b;
-    }
-    public float sub(float a, float b) {
-        return a - b;
-    }
+    //public float sub(float a, float b) {
+      //  return a - b;
+    //}
 }
 
