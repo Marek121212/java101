@@ -44,10 +44,9 @@ public class Reactor extends AbstractActor {
 
     public void increaseTemperature(int increment) {
         if (increment < 0 || isRunning() == false) {
-            this.temperature = this.temperature + increment;
-        } else {
             return;
         }
+
         this.temperature = this.temperature + increment;
         // ak je poskodenie 100 uz ostane rozbity obrazok....
         if (this.damage == 100) {
