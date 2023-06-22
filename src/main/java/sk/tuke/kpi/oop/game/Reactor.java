@@ -9,21 +9,23 @@ public class Reactor extends AbstractActor {
     private int damage;
     private Animation normalAnimation;
     private Animation normalAnimationHot;
+    private Animation animationTurnOff;
 
     public Reactor() { // konstruktor nic nevracia preto ani void nepise
         this.temperature = 0;
         this.state = false;
         this.damage = 0;
+        this.animationTurnOff = new Animation("sprites/reactor.png");
+
         this.normalAnimation = new Animation("sprites/reactor_on.png",
             80, 80, 0.1f,
             Animation.PlayMode.LOOP_PINGPONG); //prehrava obrazky 1,2,3,4,3,2,1;
-
 
         this.normalAnimationHot = new Animation("sprites/reactor_hot.png",
             80, 80, 0.1f,
             Animation.PlayMode.LOOP_PINGPONG);
 
-        setAnimation(this.normalAnimation);
+        setAnimation(this.animationTurnOff);
         //nastavujem len normalAnimation / ostatne nie lebo ako sa ma zobrazit prvy obrazok
         //ak by som nastavil aj this.normalAnimationHot videl by som hned horuci obrazok...
     }
@@ -134,5 +136,15 @@ public class Reactor extends AbstractActor {
         }
         this.temperature = 0;
         updateAnimation();
+    }
+    public void turnOn(){
+        this.state = true;
+    }
+
+    public void turnOff(){
+        this.state = false;
+    }
+    public boolean isRunning(){
+        return this.state;
     }
 }

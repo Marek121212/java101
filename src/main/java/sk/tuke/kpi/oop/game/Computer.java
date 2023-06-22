@@ -24,8 +24,8 @@ public class Computer extends AbstractActor {
         return operand1 - opernad2;
     }
 
-    public float spocitaj(){
-        return add(10.5f, 20.0f);
-    }
+    //public float spocitaj(){
+      //  return add(10.5f, 20.0f);
+    //}
 }
 
