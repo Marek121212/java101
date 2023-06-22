@@ -143,6 +143,7 @@ public class Reactor extends AbstractActor {
     }
 
     public void turnOn() {
+        //this.light.setElectricityFlow(true);
         if(this.damage == 100){
             return;
         }
@@ -154,6 +155,7 @@ public class Reactor extends AbstractActor {
     }
 
     public void turnOff() {
+        //this.light.setElectricityFlow(false);
         if(this.damage == 0){
            return;
         }
@@ -169,4 +171,6 @@ public class Reactor extends AbstractActor {
     public void addLight(Light light){
         this.light = light;
     }
+
+
 }
