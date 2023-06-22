@@ -11,6 +11,8 @@ public class Reactor extends AbstractActor {
     private Animation normalAnimationHot;
     private Animation animationTurnOff;
 
+    private Light light;
+
     public Reactor() { // konstruktor nic nevracia preto ani void nepise
         this.temperature = 0;
         this.state = false;
@@ -162,5 +164,9 @@ public class Reactor extends AbstractActor {
 
     public boolean isRunning() {
         return this.state;
+    }
+
+    public void addLight(Light light){
+        this.light = light;
     }
 }

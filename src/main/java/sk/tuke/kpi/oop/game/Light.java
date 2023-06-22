@@ -27,7 +27,6 @@ public class Light extends AbstractActor {
         }
 
     }
-
     //alebo
     //this.isOn = !this.isOn;
     //} if(this.isOn){
@@ -35,8 +34,7 @@ public class Light extends AbstractActor {
     //}else{
     //setAnimation(lightoff);
    // }
-
-    //alebo
+    //alebo ternarna operacia
 //    this.isOn = !this.isOn;
 //    setAnimation(this.isOn ? lighOff lightOn)
 
