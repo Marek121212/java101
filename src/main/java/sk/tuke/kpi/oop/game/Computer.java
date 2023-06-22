@@ -14,14 +14,18 @@ public class Computer extends AbstractActor {
         return operand1 + operand2;
     }
 
-    //public float add(float a, float b) {
-      //  return a + b;
-    //}
+    public float add(float opernad1, float operand2) {
+        return opernad1 + operand2;
+    }
     public int sub(int operand1, int operand2){
         return operand1 - operand2;
     }
-    //public float sub(float a, float b) {
-      //  return a - b;
-    //}
+    public float sub(float operand1, float opernad2) {
+        return operand1 - opernad2;
+    }
+
+    public float spocitaj(){
+        return add(10.5f, 20.0f);
+    }
 }
 
