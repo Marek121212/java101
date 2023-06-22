@@ -27,4 +27,14 @@ public class Light extends AbstractActor {
         }
 
     }
+
+    //alebo
+    //this.isOn = !this.isOn;
+    //} if(this.isOn){
+      //  setAnimation(lightOn);
+    //}else{
+    //setAnimation(lightoff);
+   // }
+
 }
+
